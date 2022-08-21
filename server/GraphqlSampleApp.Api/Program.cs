@@ -1,4 +1,5 @@
-using GraphqlSampleApp.Api.Repositories;
+using GraphqlSampleApp.Api.Repositories.Implementations;
+using GraphqlSampleApp.Api.Repositories.Interfaces;
 using GraphqlSampleApp.Api.Types;
 using GraphqlSampleApp.Api.Utilities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -15,6 +16,7 @@ builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSet
 
 builder.Services.AddSingleton<IMongoClient, MongoClient>(sp => new MongoClient(builder.Configuration.GetConnectionString("MongoDb")));
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IPostRepository, PostRepository>();
 builder.Services.AddTransient<IUserRoleRepository, UserRoleRepository>();
 builder.Services.AddGraphQLServer()
         .AddAuthorization()

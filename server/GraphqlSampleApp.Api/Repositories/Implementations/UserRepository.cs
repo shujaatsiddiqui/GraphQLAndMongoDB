@@ -1,4 +1,5 @@
 ﻿using GraphqlSampleApp.Api.Models.User;
+using GraphqlSampleApp.Api.Repositories.Interfaces;
 using GraphqlSampleApp.Api.Utilities;
 using HotChocolate.Data;
 using Microsoft.Extensions.Options;
@@ -10,7 +11,7 @@ using System.Security.Cryptography;
 using System.Text;
 using static GraphqlSampleApp.Api.Models.User.UserPayload;
 
-namespace GraphqlSampleApp.Api.Repositories
+namespace GraphqlSampleApp.Api.Repositories.Implementations
 {
     public class UserRepository : IUserRepository
     {
@@ -37,6 +38,7 @@ namespace GraphqlSampleApp.Api.Repositories
         }
         public User CreateUser(CreateUserInput createUserSettingInput)
         {
+
             var item = new User
             {
                 Bio = createUserSettingInput.Bio,

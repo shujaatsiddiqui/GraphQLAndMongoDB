@@ -1,7 +1,8 @@
 ﻿using GraphqlSampleApp.Api.Models.User;
+using GraphqlSampleApp.Api.Repositories.Interfaces;
 using MongoDB.Driver;
 
-namespace GraphqlSampleApp.Api.Repositories
+namespace GraphqlSampleApp.Api.Repositories.Implementations
 {
     public class UserRoleRepository : IUserRoleRepository
     {

@@ -1,5 +1,6 @@
-﻿using GraphqlSampleApp.Api.Models.User;
-using GraphqlSampleApp.Api.Repositories;
+﻿using GraphqlSampleApp.Api.Models.Post;
+using GraphqlSampleApp.Api.Models.User;
+using GraphqlSampleApp.Api.Repositories.Interfaces;
 using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Subscriptions;
 using static GraphqlSampleApp.Api.Models.User.UserPayload;
@@ -21,6 +22,12 @@ namespace GraphqlSampleApp.Api.Types
             {
                 return null;
             }
+        }
+
+        public async Task<CreatePostPayload> CreatePost([Service] IPostRepository postRepository, CreatePostInput createPostInput)
+        {
+            var item = await Task.Run(() => postRepository.CreatePost(createPostInput));
+            return new CreatePostPayload(item);
         }
         public DeleteUserPayload DeleteUser([Service] IUserRepository userRepository, [ID] Guid id)
         {

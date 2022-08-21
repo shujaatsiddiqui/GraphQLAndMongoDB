@@ -1,5 +1,5 @@
 ﻿using GraphqlSampleApp.Api.Models.User;
-using GraphqlSampleApp.Api.Repositories;
+using GraphqlSampleApp.Api.Repositories.Interfaces;
 using HotChocolate.Data;
 
 namespace GraphqlSampleApp.Api.Types

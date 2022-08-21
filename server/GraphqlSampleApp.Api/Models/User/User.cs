@@ -1,4 +1,6 @@
-﻿namespace GraphqlSampleApp.Api.Models.User
+﻿using GraphqlSampleApp.Api.Models.Post;
+
+namespace GraphqlSampleApp.Api.Models.User
 {
     [Node(
    IdField = nameof(Id),

@@ -1,7 +1,7 @@
 ﻿using GraphqlSampleApp.Api.Models.User;
 using static GraphqlSampleApp.Api.Models.User.UserPayload;
 
-namespace GraphqlSampleApp.Api.Repositories
+namespace GraphqlSampleApp.Api.Repositories.Interfaces
 {
     public interface IUserRepository
     {
