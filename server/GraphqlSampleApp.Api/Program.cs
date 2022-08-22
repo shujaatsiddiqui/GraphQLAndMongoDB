@@ -1,6 +1,8 @@
 using GraphqlSampleApp.Api.Repositories.Implementations;
 using GraphqlSampleApp.Api.Repositories.Interfaces;
 using GraphqlSampleApp.Api.Types;
+using GraphqlSampleApp.Api.Types.Mutations;
+using GraphqlSampleApp.Api.Types.Query;
 using GraphqlSampleApp.Api.Utilities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -77,8 +79,8 @@ builder.Services
 
 var app = builder.Build();
 
-app.UseAuthentication();
-app.UseAuthorization();
+//app.UseAuthentication();
+//app.UseAuthorization();
 app.UseCors(AllowedOrigin);
 app.UseWebSockets();
 app.MapGraphQL();

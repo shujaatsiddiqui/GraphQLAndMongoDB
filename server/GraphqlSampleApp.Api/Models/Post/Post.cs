@@ -4,17 +4,17 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace GraphqlSampleApp.Api.Models.Post
 {
-    [Node(
-   IdField = nameof(Id),
-   NodeResolverType = typeof(PostNodeResolver),
-   NodeResolver = nameof(PostNodeResolver.ResolveAsync))]
+   // [Node(
+   //IdField = nameof(Id),
+   //NodeResolverType = typeof(PostNodeResolver),
+   //NodeResolver = nameof(PostNodeResolver.ResolveAsync))]
     public class Post
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string Title { get; set; } = "";
-        public string UserName { get; set; }
+        public string UserName { get; set; } 
 
         public ICollection<Comment> Comments { get; set; }
 

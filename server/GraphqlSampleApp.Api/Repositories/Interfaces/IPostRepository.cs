@@ -5,6 +5,10 @@ namespace GraphqlSampleApp.Api.Repositories.Interfaces
 {
     public interface IPostRepository
     {
-        Post CreatePost(CreatePostInput post);
+        Task<Post> CreatePost(CreatePostInput post);
+        Task<Post> GetPost(string id);
+        Task<List<Post>> GetPostsByUsername(string userName);
+        Task<bool> DeletePost(string id);
+        Task<long> ReplacePost(string id, CreatePostInput post);
     }
 }

@@ -2,9 +2,12 @@
 using GraphqlSampleApp.Api.Repositories.Interfaces;
 using HotChocolate.Data;
 
-namespace GraphqlSampleApp.Api.Types
+namespace GraphqlSampleApp.Api.Types.Query
 {
-    public class Query
+    //[GraphQLName("UserQuery")]
+
+    //[ExtendObjectType(typeof(Query))]
+    public class UserQuery
     {
         [UsePaging(IncludeTotalCount = true)]
         [UseProjection]

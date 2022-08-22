@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Types\Mutations\PostMutation.cs" />
+    <Compile Remove="Types\Mutations\UserMutation.cs" />
+    <Compile Remove="Types\Query\PostQuery.cs" />
+    <Compile Remove="Types\Query\UserQuery.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="HotChocolate" Version="12.6.1" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="12.6.0" />
     <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="12.6.1" />

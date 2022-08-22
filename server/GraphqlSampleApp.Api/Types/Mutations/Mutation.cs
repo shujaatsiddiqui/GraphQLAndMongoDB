@@ -1,13 +1,31 @@
 ﻿using GraphqlSampleApp.Api.Models.Post;
 using GraphqlSampleApp.Api.Models.User;
 using GraphqlSampleApp.Api.Repositories.Interfaces;
-using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Subscriptions;
 using static GraphqlSampleApp.Api.Models.User.UserPayload;
-namespace GraphqlSampleApp.Api.Types
+
+namespace GraphqlSampleApp.Api.Types.Mutations
 {
     public class Mutation
     {
+        public async Task<CreatePostPayload> CreatePost([Service] IPostRepository postRepository, CreatePostInput createPostInput)
+        {
+            var item = await Task.Run(() => postRepository.CreatePost(createPostInput));
+            return new CreatePostPayload(item);
+        }
+
+        public async Task<bool> DeletePost([Service] IPostRepository postRepository, string id)
+        {
+            var item = await postRepository.DeletePost(id);
+            return item;
+        }
+
+        public async Task<long> UpdatePost([Service] IPostRepository postRepository, string id, CreatePostInput post)
+        {
+            var item = await postRepository.ReplacePost(id, post);
+            return item;
+        }
+
         //[Authorize]
         public async Task<CreateUserPayload> CreateUser([Service] IUserRepository userRepository, [Service] ITopicEventSender eventSender, CreateUserInput createUserInput)
         {
@@ -22,12 +40,6 @@ namespace GraphqlSampleApp.Api.Types
             {
                 return null;
             }
-        }
-
-        public async Task<CreatePostPayload> CreatePost([Service] IPostRepository postRepository, CreatePostInput createPostInput)
-        {
-            var item = await Task.Run(() => postRepository.CreatePost(createPostInput));
-            return new CreatePostPayload(item);
         }
         public DeleteUserPayload DeleteUser([Service] IUserRepository userRepository, [ID] Guid id)
         {
