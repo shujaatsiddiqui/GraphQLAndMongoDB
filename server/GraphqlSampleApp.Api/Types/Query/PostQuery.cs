@@ -6,13 +6,13 @@ using HotChocolate.Data;
 namespace GraphqlSampleApp.Api.Types.Query
 {
     //[GraphQLName("PostQuery")]
-    //[ExtendObjectType(typeof(Query))]
+    [ExtendObjectType(typeof(Query))]
     public class PostQuery
     {
-        [UsePaging(IncludeTotalCount = true)]
-        [UseProjection]
-        [UseSorting]
-        [UseFiltering]
+        //[UsePaging(IncludeTotalCount = true)]
+        //[UseProjection]
+        //[UseSorting]
+        //[UseFiltering]
         //[Authorize(Roles= new[] {"admin","super-admin"})]
         //[Authorize(Policy="roles-policy")]
         //[Authorize(Policy="claim-policy-1")]

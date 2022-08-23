@@ -4,6 +4,7 @@ using GraphqlSampleApp.Api.Types;
 using GraphqlSampleApp.Api.Types.Mutations;
 using GraphqlSampleApp.Api.Types.Query;
 using GraphqlSampleApp.Api.Utilities;
+using HotChocolate.Types.Pagination;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Driver;
@@ -25,6 +26,8 @@ builder.Services.AddGraphQLServer()
         //for inmemory subscription
         .AddInMemorySubscriptions()
         .AddQueryType<Query>()
+        .AddTypeExtension<PostQuery>()
+        .AddTypeExtension<UserQuery>()
         .AddMutationType<Mutation>()
         .AddSubscriptionType<Subscription>()
         .AddGlobalObjectIdentification()
@@ -35,7 +38,11 @@ builder.Services.AddGraphQLServer()
         // Registers the projection convention of MongoDB
         .AddMongoDbProjections()
         // Registers the paging providers of MongoDB
-        .AddMongoDbPagingProviders();
+        .AddMongoDbPagingProviders()
+        .SetPagingOptions(new PagingOptions
+            {
+                MaxPageSize = 2
+            });
 
 // CORS
 builder.Services.AddCors(option =>

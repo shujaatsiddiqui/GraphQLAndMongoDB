@@ -11,8 +11,6 @@
   <ItemGroup>
     <Compile Remove="Types\Mutations\PostMutation.cs" />
     <Compile Remove="Types\Mutations\UserMutation.cs" />
-    <Compile Remove="Types\Query\PostQuery.cs" />
-    <Compile Remove="Types\Query\UserQuery.cs" />
   </ItemGroup>
 
   <ItemGroup>

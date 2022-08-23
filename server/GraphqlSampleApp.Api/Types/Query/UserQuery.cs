@@ -6,7 +6,7 @@ namespace GraphqlSampleApp.Api.Types.Query
 {
     //[GraphQLName("UserQuery")]
 
-    //[ExtendObjectType(typeof(Query))]
+    [ExtendObjectType(typeof(Query))]
     public class UserQuery
     {
         [UsePaging(IncludeTotalCount = true)]
@@ -20,7 +20,6 @@ namespace GraphqlSampleApp.Api.Types.Query
         //[Authorize]
         public IExecutable<User> GetUsers([Service] IUserRepository userRepository) => userRepository.GetUser();
 
-        [UseFirstOrDefault]
-        public IExecutable<User> GetUserById([Service] IUserRepository userRepository, [ID] Guid id) => userRepository.GetUserById(id);
+        public User GetUserById([Service] IUserRepository userRepository, [ID] Guid id) => userRepository.GetUserById(id);
     }
 }

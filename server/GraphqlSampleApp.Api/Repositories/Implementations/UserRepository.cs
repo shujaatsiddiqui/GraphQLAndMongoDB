@@ -28,13 +28,14 @@ namespace GraphqlSampleApp.Api.Repositories.Implementations
             _jwtSettings = jwtSettings.Value;
         }
 
-        public IExecutable<User> GetUserById([ID(null)] Guid id)
+        public User GetUserById(Guid id)
         {
-            return _user.Find(x => x.Id == id).AsExecutable();
+            var result = _user.Find(x => x.Id == id);
+            return result.FirstOrDefault();
         }
         public IExecutable<User> GetUser()
         {
-            return _user.AsExecutable();
+            return _user.Find(_ => true).AsExecutable();
         }
         public User CreateUser(CreateUserInput createUserSettingInput)
         {
@@ -250,5 +251,6 @@ namespace GraphqlSampleApp.Api.Repositories.Implementations
 
             return principal;
         }
+
     }
 }
