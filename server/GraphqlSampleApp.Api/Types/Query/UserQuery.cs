@@ -10,9 +10,9 @@ namespace GraphqlSampleApp.Api.Types.Query
     public class UserQuery
     {
         [UsePaging(IncludeTotalCount = true)]
-        [UseProjection]
-        [UseSorting]
-        [UseFiltering]
+        //[UseProjection]
+        //[UseSorting]
+        //[UseFiltering]
         //[Authorize(Roles= new[] {"admin","super-admin"})]
         //[Authorize(Policy="roles-policy")]
         //[Authorize(Policy="claim-policy-1")]

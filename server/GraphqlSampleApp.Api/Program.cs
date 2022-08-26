@@ -29,6 +29,8 @@ builder.Services.AddGraphQLServer()
         .AddTypeExtension<PostQuery>()
         .AddTypeExtension<UserQuery>()
         .AddMutationType<Mutation>()
+        .AddTypeExtension<PostMutation>()
+        .AddTypeExtension<UserMutation>()
         .AddSubscriptionType<Subscription>()
         .AddGlobalObjectIdentification()
         // Registers the filter convention of MongoDB

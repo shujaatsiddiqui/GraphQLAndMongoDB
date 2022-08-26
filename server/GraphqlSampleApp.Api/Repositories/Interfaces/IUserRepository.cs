@@ -6,7 +6,7 @@ namespace GraphqlSampleApp.Api.Repositories.Interfaces
     public interface IUserRepository
     {
         IExecutable<User> GetUser();
-        User GetUserById([ID] Guid id);
+        User GetUserById(Guid id);
         User CreateUser(CreateUserInput createUserInput);
         bool DeleteUser(Guid id);
         bool UpdateUser(Guid id, UpdateUserInput updateUserInput);

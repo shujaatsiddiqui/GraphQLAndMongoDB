@@ -35,7 +35,7 @@ namespace GraphqlSampleApp.Api.Repositories.Implementations
         }
         public IExecutable<User> GetUser()
         {
-            return _user.Find(_ => true).AsExecutable();
+            return _user.AsExecutable();
         }
         public User CreateUser(CreateUserInput createUserSettingInput)
         {
