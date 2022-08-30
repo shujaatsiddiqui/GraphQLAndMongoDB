@@ -2,13 +2,17 @@ version: '3.7'
 services:
   mongodb_container:
     image: mongo:latest
+    #command to write all db files inside specific data/db folder
+    command: mongod --dbpath /data/db
     #environment:
     #  MONGO_INITDB_ROOT_USERNAME: root
     #  MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
       - 27017:27017
     volumes:
-      - mongodb_data_container:/data/db
+    #<local folder> : <container folder>
+      - C:\Shujaat\Mongo\data:/data
 
-volumes:
-  mongodb_data_container:
+
+#volumes:
+#  mongodb_data_container:
