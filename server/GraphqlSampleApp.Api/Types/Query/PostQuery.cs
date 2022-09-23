@@ -10,7 +10,7 @@ namespace GraphqlSampleApp.Api.Types.Query
     {    //For the UsePaging middleware to work, our resolver needs to return an IEnumerable<T> or an IQueryable<T>.
          //The middleware will then apply the pagination arguments to what we have returned.In the case of an IQueryable<T> this means that the pagination operations can be directly translated to native database queries. 
          //We also offer pagination integrations for some database technologies that do not use IQueryable.
-        [UsePaging(IncludeTotalCount = true)]
+        //[UsePaging(IncludeTotalCount = true)]
         //[UseProjection]
         //[UseSorting]
         //[UseFiltering]
